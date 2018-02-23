@@ -24,10 +24,10 @@ factory('io', function ($http) {
       socket.emit('event.subscribe', ioRoom);
     },
 
-    emit: function (arguments) {
+    emit: function (args) {
       socket.emit('event.message', {
         room: ioRoom,
-        message: arguments
+        message: args
       });
     },
 

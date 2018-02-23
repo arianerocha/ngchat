@@ -1,0 +1,41 @@
+;.editorconfig
+# top-most EditorConfig file
+root = true
+
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Standard at: https://github.com/felixge/node-style-guide
+# [*.js, *.json]
+[*.js]
+quote_type = single
+curly_bracket_next_line = false
+spaces_around_operators = true
+space_after_control_statements = true
+space_after_anonymous_functions = true
+spaces_in_brackets = false
+brace_style = end-expand
+max_line_length = 80
+
+[*.html]
+max_char = 78
+brace_style = expand
+max_line_length = 80
+
+[{*.css,*.styl,*.scss,*.less}]
+spaces_in_brackets = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Standard at:
+[Makefile]
+indent_style = tab
+indent_size = 4

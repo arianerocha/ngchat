@@ -1,4 +1,6 @@
-angular.module('myApp', ['io.service']).
+import 'io';
+
+angular.module('ngChatApp', ['io.service']).
 
 run(function (io) {
   io.init({
