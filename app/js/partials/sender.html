@@ -1,0 +1,29 @@
+<div>
+  <div class="chat-history">
+    <ul class="list-unstyled" ng-if="chatHistory.length > 0">
+      <li class="clearfix" ng-repeat="item in chatHistory" ng-class="$even ? 'message-right':'message-left'">
+        <div class="message-data mb-1">
+          <span class="message-data-name">{{item.user}}</span>
+          <span class="message-data-time">{{ item.date | date : short}}</span>
+        </div>
+        <div class="message">
+          {{item.message}}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <form name="messageForm" novalidate ng-submit="send(messageForm)" class="form-message">
+    <div class="form-group">
+      <textarea class="form-control" id="message" name="message" rows="3" ng-model="chatMessage"
+        ng-minlength="1" ng-maxlength="140" required placeholder="Type your message"></textarea>
+
+      <div ng-messages="messageForm.message.$error" ng-show="messageForm.$submitted">
+        <p class="text-danger small" ng-message-exp="['minlength', 'maxlength']"> Your message must be between 1 and 140 characters long.</p>
+        <p class="text-danger small" ng-message="required">A message is required.</p>
+      </div>
+    </div>
+    <div class="form-group d-flex">
+      <input type="submit" value="SEND" class="ml-auto font-weight-bold btn btn-link" />
+    </div>
+  </form>
+</div>

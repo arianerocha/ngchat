@@ -1,17 +1,46 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-  <title>mini-chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Mini-chat</title>
+
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 
 <body ng-app="ngChatApp">
-  <div ng-controller="MainController">
-    <input type="text" ng-model="message">
-    <button ng-click="send()">Send</button>
-    <hr>
-    <h1>{{lastMessage}}</h1>
-  </div>
+  <nav class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+      <span class="navbar-brand mb-0 h1">
+      <i class="fas fa-comments"></i>
+      Mini-Chat</span>
+    </div>
+  </nav>
+  <main id="content">
+    <div class="container pt-5">
+      <div class="row" ng-controller="MainController">
+        <div class="col-12 col-md-8 chat rounded box-shadow">
+          <sender message="message" on-send="send($message)" welcome-message="welcomeMessage"
+            chat-history="messages"></sender>
+        </div>
+        <div class="col-12 col-md-4 sidebar rounded box-shadow">
+          <div class="row">
+            <div class="col-12">
+              <nickname on-change-nickname="changeNickname($nickname)" users="users" current-nickname="nickname"></nickname>
+            </div>
+            <div class="col-12 mt-3 sidebar-contact">
+              <sidebar-list title="Contacts" list-items="users" show-icon="true"></sidebar-list>
+            </div>
+            <div class="col-12 mt-3 d-none d-sm-block">
+              <sidebar-list title='Latest Activities' list-items="updates"></sidebar-list>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </main>
 
   <script src="//localhost:3696/socket.io/socket.io.js"></script>
 

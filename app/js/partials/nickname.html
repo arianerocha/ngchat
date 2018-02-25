@@ -1,0 +1,16 @@
+<div class="rounded box-shadow nickname">
+  <form class="form" name="nicknameForm" novalidate ng-submit="submit(nicknameForm)">
+    <div class="form-group">
+      <div class="col-sm-12">
+        <input type="text" class="form-control-plaintext" id="nickname" name="nickname" ng-model="nickname"
+          placeholder="Enter your nickname" required ng-minlength="3" ng-maxlength="30">
+          <div ng-messages="nicknameForm.nickname.$error" ng-show="nicknameForm.$submitted" class="message-error">
+              <p class="text-danger small" ng-message-exp="['minlength', 'maxlength']"> Your nickname must be between 3 and 30 characters long.</p>
+              <p class="text-danger small" ng-message="required">A nickname is required.</p>
+              <p class="text-danger small" ng-message="nickname">Nickname already in use.</p>
+            </div>
+      </div>
+    </div>
+    <input type="submit" value="ENTER" class="btn btn-primary btn-sm btn-nickname" />
+  </form>
+</div>

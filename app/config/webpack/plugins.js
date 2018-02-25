@@ -4,6 +4,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
@@ -62,6 +64,12 @@ module.exports = function (application, env) {
 
     new webpack.optimize.MinChunkSizePlugin({
       minChunkSize: 51200
+    }),
+
+    new ExtractTextPlugin({
+      filename: 'assets/css/[name].[chunkhash].css',
+      disable: env !== 'prod',
+      allChunks: false,
     }),
 
     new HtmlWebpackPlugin({

@@ -1,3 +1,9 @@
 **/.DS_Store
 /server/node_modules
 /app/node_modules
+/server/coverage
+/app/coverage
+
+
+# EDITOR
+.jsbeautifyrc

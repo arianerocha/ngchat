@@ -1,0 +1,14 @@
+<div class="p-3 rounded box-shadow sidebar-list">
+  <h6 class="border-gray pb-2 mb-0">{{ title }}</h6>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" ng-repeat="item in listItems | orderBy: reverse:true track by $index">
+      <p class="mb-0 small">
+        
+        <strong class="d-block text-gray-dark" ng-if="item.user">
+            <i class="fas fa-circle" ng-show="showIcon"></i> {{item.user}}
+        </strong>
+        {{item.message}}
+      </p>
+    </li>
+  </ul>
+</div>

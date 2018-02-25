@@ -1,1 +1,2 @@
-import 'angular/angular.min.js';
+import 'angular/angular.js';
+import 'angular-messages/angular-messages.js';

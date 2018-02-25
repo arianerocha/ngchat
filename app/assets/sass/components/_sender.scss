@@ -1,0 +1,88 @@
+@import 'mixins/responsive';
+
+.chat-history {
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid white;
+  overflow-y: auto;
+  height: 620px;
+
+  @include phone {
+    height: 250px;
+  }
+
+  @include media-breakpoint-up('md') {
+    height: 580px;
+  }
+}
+
+.form-message {
+  padding-top: 30px;
+
+  textarea {
+    line-height: 32px !important;
+  }
+}
+
+.message-data-time {
+  color: $gray-400;
+  padding-left: .5rem;
+  font-size: 13px;
+}
+
+.message-data-name {
+  color: $gray-500;
+  font-size: 14px;
+}
+
+.message {
+  color: white;
+  padding: 18px 20px;
+  line-height: 26px;
+  border-radius: 7px;
+  margin-bottom: 1.875rem;
+  width: 90%;
+  position: relative;
+
+  &:after {
+    bottom: 100%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    margin-left: -10px;
+  }
+}
+
+.message-left {
+  & > .message-data {
+    text-align: left;
+  }
+
+  & > .message {
+    background: color('cyan');
+
+    &:after {
+      left: 7%;
+      border-bottom-color: color('cyan');
+    }
+  }
+}
+
+.message-right {
+  & > .message-data {
+    text-align: right;
+  }
+
+  & > .message {
+    background: color('teal');
+    float: right;
+
+    &:after {
+      right: 7%;
+      border-bottom-color: color('teal');
+    }
+  }
+}

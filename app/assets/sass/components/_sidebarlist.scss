@@ -1,0 +1,31 @@
+.sidebar-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 316px;
+
+  h6 {
+    font-weight: 700;
+  }
+
+  .list-group-flush > .list-group-item {
+    background-color: transparent;
+    border-color: transparent;
+
+
+    .fas {
+      color: color('green');
+    }
+  }
+}
+
+.sidebar-contact {
+  .sidebar-list {
+    height: 340px;
+
+
+    @include phone {
+      height: 200px;
+      max-height: 200px;
+    }
+  }
+}
